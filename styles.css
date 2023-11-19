@@ -1,0 +1,47 @@
+:root.dark{
+    --background-image: url('/assets/night.gif');
+    --container-color: #3c096c;
+}
+
+:root.light{
+    --background-image: url('/assets/morning.gif');
+    --container-color: #abc4ff;
+}
+
+#theme-toggle{
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: end;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#container{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+}
+
+#background{
+    background: var(--background-image);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 50vw;
+    height: 100%;
+}
+
+#formDiv{
+    background-color: var(--container-color);
+    width: 50vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
