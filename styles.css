@@ -1,12 +1,45 @@
 :root.dark{
     --background-image: url('/assets/night.gif');
-    --container-color: #3c096c;
+    --font-color: #faf9f9;
+    --form-bg-color: rgba(16, 0, 43, 0.6);
+    --label-color: #f9f7f3;
 }
 
 :root.light{
     --background-image: url('/assets/morning.gif');
-    --container-color: #abc4ff;
+    --font-color: #001d3d;
+    --form-bg-color: rgba(164, 195, 178, 0.7);
+    --label-color: #22333b;
 }
+
+body{
+    margin: 0;
+    padding: 0;
+    background: var(--background-image);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#formDiv{
+    margin-top: 70px;
+    background-color: var(--form-bg-color);
+    height: 500px;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputRow{
+    display: flex;
+    gap: 50px;
+    margin-bottom: 20px;
+}
+
 
 #theme-toggle{
     border: none;
@@ -16,32 +49,36 @@
     cursor: pointer;
     display: flex;
     justify-content: end;
+    position: absolute;
+    top: 1em;
+    right: 1em;
 }
 
-body{
-    margin: 0;
-    padding: 0;
+label{
+    color: var(--label-color);
 }
 
-#container{
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    height: 100vh;
+h1{
+    color: var(--font-color);
+    margin-bottom: 65px;
 }
 
-#background{
-    background: var(--background-image);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    width: 50vw;
-    height: 100%;
+.inputRow input{
+    border: 2px solid;
+    border-radius: 8px;
+    outline: none;
+    padding: 5px 10px;
 }
 
-#formDiv{
-    background-color: var(--container-color);
-    width: 50vw;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+input:focus{
+    border-color: #3772ff;
+}
+
+input:valid{
+    border-color: #a7c957;
+}
+
+
+input:invalid{
+    border-color: #e71d36;
 }
