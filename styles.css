@@ -3,6 +3,9 @@
     --font-color: #faf9f9;
     --form-bg-color: #1a759f;
     --label-color: #22333b;
+    --labelBG-focus-color: #003049;
+    --label-focus-color: #caf0f8;
+    --button-hover-color: rgba(80, 63, 205,0.7);
 }
 
 :root.light{
@@ -10,6 +13,9 @@
     --font-color: #001d3d;
     --form-bg-color: #76c893;
     --label-color: #22333b;
+    --labelBG-focus-color: #386641;
+    --label-focus-color: #f2e8cf;
+    --button-hover-color: rgba(43, 147, 72, 0.7);
 }
 
 body{
@@ -64,7 +70,7 @@ h1{
 .inputRow{
     display: flex;
     gap: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .inputRow input{
@@ -74,17 +80,18 @@ h1{
     padding: 5px 10px;
 }
 
-input:focus{
-    border-color: #3772ff;
-}
 
-input:valid{
+.touched:valid{
     border-color: #a7c957;
 }
 
 
-input:invalid{
+.touched:invalid {
     border-color: #e71d36;
+}
+
+.touched:focus{
+    border-color: #3772ff;
 }
 
 .input-field {
@@ -118,3 +125,33 @@ input:invalid{
     animation: rotate 0.5s linear;
 }
 
+.button{
+    padding: 15px 80px;
+    border-radius: 1em;
+    background-color: var(--labelBG-focus-color);
+    color: var(--label-focus-color);
+    border: none;
+}
+
+.button:hover{
+    box-shadow: 0px 0px 27px 2px var(--button-hover-color);
+    transition-duration: .2s;
+    cursor: pointer;
+    padding: 15px 85px;
+}
+
+#login{
+    margin-top: 10px;
+}
+
+span{
+    color: var(--font-color);
+}
+
+i{
+    color: var(--label-color);
+}
+
+i:hover{
+    cursor: pointer;
+}
