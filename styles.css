@@ -1,37 +1,41 @@
 :root.dark{
     --background-image: url('/assets/night.gif');
     --font-color: #faf9f9;
-    --form-bg-color: rgba(16, 0, 43, 0.6);
+    --form-bg-color: #1a759f;
     --label-color: #22333b;
 }
 
 :root.light{
     --background-image: url('/assets/morning.gif');
     --font-color: #001d3d;
-    --form-bg-color: rgba(164, 195, 178, 0.7);
+    --form-bg-color: #76c893;
     --label-color: #22333b;
 }
 
 body{
     margin: 0;
     padding: 0;
-    background: var(--background-image);
-    background-repeat: no-repeat;
-    background-size: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
 }
 
+#background{
+    background: var(--background-image);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 80%;
+    height: 100vh;
+}
 
 #formDiv{
-    margin-top: 70px;
     background-color: var(--form-bg-color);
-    height: 500px;
-    width: 800px;
+    height: 100vh;
+    width: 100%;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 
@@ -50,7 +54,10 @@ body{
 
 h1{
     color: var(--font-color);
-    margin-bottom: 65px;
+    position: absolute;
+    top: 4.5em;
+    white-space: nowrap;
+    font-size: 1.8em;
 }
 
 
@@ -84,6 +91,7 @@ input:invalid{
     position: relative;
 }
 
+
 .input-field input {
     padding: 10px;
     width: 200px;
@@ -95,5 +103,18 @@ input:invalid{
     left: 10px;
     top: 10px;
     transition: 0.3s;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate {
+    animation: rotate 0.5s linear;
 }
 
