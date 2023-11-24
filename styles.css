@@ -9,7 +9,7 @@
 }
 
 :root.dark{
-    --background-image: url('/assets/night.gif'), url('./assets/night.png');
+    --background-image: url('./assets/night.png');
     --font-color: #faf9f9;
     --form-bg-color: #1a759f;
     --label-color: #22333b;
@@ -20,7 +20,7 @@
 }
 
 :root.light{
-    --background-image: url('/assets/morning.gif'), url('./assets/morning.png');
+    --background-image: url('./assets/morning.png');
     --font-color: #001d3d;
     --form-bg-color: #76c893;
     --label-color: #22333b;
