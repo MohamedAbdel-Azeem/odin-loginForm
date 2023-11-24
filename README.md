@@ -11,14 +11,9 @@ This project is a simple login form built for The Odin Project's curriculum. It 
 
 ## Languages Used
 
-![HTML Logo](https://url-to-html-logo.png)
-HTML: Used for structuring the content of the web page.
-
-![CSS Logo](https://url-to-css-logo.png)
-CSS: Used for styling the web page.
-
-![JavaScript Logo](https://url-to-js-logo.png)
-JavaScript: Used for form validation and dynamic content manipulation.
+- HTML: Used for structuring the content of the web page.
+- CSS: Used for styling the web page.
+- JavaScript: Used for form validation and dynamic content manipulation.
 
 ## Things Learned
 
@@ -27,3 +22,6 @@ JavaScript: Used for form validation and dynamic content manipulation.
 - Regular expressions: Learned how to use regular expressions to validate the phone number input.
 - Advanced CSS Selectors: Learned and practiced using advanced CSS selectors for more specific styling.
 - In Addition to that I practiced DOM Manipulation and CSS Flexbox
+
+### You can access the Website via this Link:
+https://mohamedabdel-azeem.github.io/odin-loginForm/
