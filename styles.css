@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'CoolBigFont';
+    src: url('./assets/fonts/OptimusPrincepsSemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'CoolSmallFont';
+    src: url('./assets/fonts/OptimusPrinceps.ttf') format('truetype');
+}
+
 :root.dark{
     --background-image: url('/assets/night.gif');
     --font-color: #faf9f9;
@@ -6,6 +16,7 @@
     --labelBG-focus-color: #003049;
     --label-focus-color: #caf0f8;
     --button-hover-color: rgba(80, 63, 205,0.7);
+    --error-color: #d00000;
 }
 
 :root.light{
@@ -16,6 +27,7 @@
     --labelBG-focus-color: #386641;
     --label-focus-color: #f2e8cf;
     --button-hover-color: rgba(43, 147, 72, 0.7);
+    --error-color: red;
 }
 
 body{
@@ -63,7 +75,9 @@ h1{
     position: absolute;
     top: 4.5em;
     white-space: nowrap;
-    font-size: 1.8em;
+    font-size: 1.6em;
+    font-weight: 800;
+    font-family: 'CoolBigFont', sans-serif;
 }
 
 
@@ -71,6 +85,7 @@ h1{
     display: flex;
     gap: 50px;
     margin-bottom: 30px;
+    font-family: 'CoolSmallFont', sans-serif;
 }
 
 .inputRow input{
@@ -131,6 +146,8 @@ h1{
     background-color: var(--labelBG-focus-color);
     color: var(--label-focus-color);
     border: none;
+    font-family: 'CoolBigFont', sans-serif;
+    font-size: 1em;
 }
 
 .button:hover{

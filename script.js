@@ -25,7 +25,7 @@ document.querySelectorAll('.input-field input').forEach(input => {
         label.style.top = '-1.5rem';
         label.style.backgroundColor = 'var(--labelBG-focus-color)';
         label.style.color = 'var(--label-focus-color)';
-        label.style.padding = '0 0.5rem';
+        label.style.padding = '0.05rem 0.6rem';
     });
     input.addEventListener('blur', () => {
         if (input.value === ''){
@@ -37,20 +37,73 @@ document.querySelectorAll('.input-field input').forEach(input => {
             label.style.top = '-0.75rem';
         }
     });
+    input.addEventListener('input', () => {
+        const error = input.parentElement.querySelector('.error');
+        if (input.value !== '') {
+            error.textContent = '';
+        }
+    });
 });
 
-const password = document.querySelector('#password');
-const ConfirmPassword = document.querySelector('#Confirm_password');
 
-password.addEventListener('input', checkPassword);
-ConfirmPassword.addEventListener('input', checkPassword);
+document.querySelectorAll('.input-field').forEach(field => {
+    const error = document.createElement('div');
+    error.className = 'error';
+    field.appendChild(error);
+});
 
-function checkPassword(){
-    if (password.value !== ConfirmPassword.value){
-        password.style.borderColor = '#e71d36';
-        ConfirmPassword.style.borderColor = '#e71d36';
+function checkPassword() {
+    const password = document.querySelector('#password');
+    const confirmPassword = document.querySelector('#Confirm_password');
+    const error1 = confirmPassword.parentElement.querySelector('.error');
+    const error2 = password.parentElement.querySelector('.error');
+    if (password.value !== confirmPassword.value) {
+        error1.textContent = '*passwords do not match';
+        error1.style.color = 'var(--error-color)';
+        error2.textContent = '*passwords do not match';
+        error2.style.color = 'var(--error-color)';
+        error1.style.marginTop = '0.5rem';
+        error2.style.marginTop = '0.5rem';
+        password.style.borderColor = 'var(--error-color)';
+        confirmPassword.style.borderColor = 'var(--error-color)';
+        return false;
     } else {
-        password.style.borderColor = '#a7c957;';
-        ConfirmPassword.style.borderColor = '#a7c957';
+        error1.textContent = '';
+        error2.textContent = '';
+        password.style.borderColor = '#a7c957';
+        confirmPassword.style.borderColor = '#a7c957';
+        return true;
     }
 }
+
+const submitForm = document.querySelector('#submit');
+
+submitForm.addEventListener('click', function(event) {
+    let allInputsFilled = true;
+    const pattern = /^\+?[0-9]*$/;
+    document.querySelectorAll('.input-field input').forEach(input => {
+        const error = input.parentElement.querySelector('.error');
+        if (input.value === '') {
+            event.preventDefault();
+            allInputsFilled = false;
+            error.textContent = '*this field is required';
+            error.style.color = 'var(--error-color)';
+            error.style.marginTop = '0.5rem';
+            input.classList.add('touched');
+        } else {
+            error.textContent = '';
+            if (input.id === 'Phone' && !pattern.test(input.value)) {
+                event.preventDefault();
+                error.textContent = 'Invalid phone number!';
+                error.style.color = 'var(--error-color)';
+                error.style.marginTop = '0.5rem';
+            } else {
+                error.textContent = '';
+            }
+        }
+    });
+    if (!checkPassword()) {
+        event.preventDefault();
+    }
+});
+
